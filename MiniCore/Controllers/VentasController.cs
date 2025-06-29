@@ -47,7 +47,7 @@ namespace MiniCore.Controllers
         // GET: Ventas/Create
         public IActionResult Create()
         {
-            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Id");
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Nombre");
             return View();
         }
 
@@ -81,7 +81,7 @@ namespace MiniCore.Controllers
             {
                 return NotFound();
             }
-            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Id", venta.VendedorId);
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Nombre", venta.VendedorId);
             return View(venta);
         }
 
@@ -117,7 +117,7 @@ namespace MiniCore.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Id", venta.VendedorId);
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Nombre", venta.VendedorId);
             return View(venta);
         }
 
